@@ -1,7 +1,6 @@
 import json
 import pandas as pd
 
-PLAYERS_DIR = 'players/'
 ODDS_DIR = 'odds/'
 
 def convert_odds_to_probability(data: pd.DataFrame) -> pd.DataFrame:
@@ -14,10 +13,6 @@ def convert_odds_to_probability(data: pd.DataFrame) -> pd.DataFrame:
     return data
 
 if __name__ == "__main__":
-    """ group_a = pd.read_csv(PLAYERS_DIR + 'group_a.csv')
-    group_b = pd.read_csv(PLAYERS_DIR + 'group_b.csv')
-    group_c = pd.read_csv(PLAYERS_DIR + 'group_c.csv') """
-
     odds_raw = open(ODDS_DIR + 'odds.json', 'r').read()
     odds_json = json.loads(odds_raw)
     odds = pd.DataFrame(odds_json['players'])
