@@ -30,18 +30,17 @@ def compute_distribution(df, column):
     return output
 
 def compute_distinct_picks(df, columns = ['Group A', 'Group B', 'Group C']):
-    total = 0
+    total_unique = 0
     for column in columns:
-        total += len(df[column].value_counts())
-    return total
+        total_unique += df[column].nunique()
+    return total_unique
 
 def main():
     results = BASE_DIR + 'stats.csv'
     df = pd.read_csv(results)
 
-    x = compute_distinct_picks(df)
     print(f"Last years competition contained a total of {len(df)} groups")
-    print(f"There was a total of {x} distinct players picked out of 95 in the field")
+    print(f"There was a total of {compute_distinct_picks(df)} distinct players picked out of 89 in the field")
     
     #print(compute_distribution(df, 'Group A'))
     #print(compute_distribution(df, 'Group B'))
