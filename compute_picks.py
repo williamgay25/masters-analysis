@@ -2,6 +2,9 @@ import pandas as pd
 
 PLAYERS_DIR = 'players/'
 COMPETITION_NAME = "MASTERS POT - Input Data"
+TOURNAMENT_DAYS = 4
+HOLES_PER_DAY = 18
+TOTAL_HOLES = TOURNAMENT_DAYS * HOLES_PER_DAY
 ENTRANTS = 200
 BET_SIZE = 10
 POT = ENTRANTS * BET_SIZE
@@ -25,6 +28,7 @@ def log_inputs():
     print(f"There are {len(group_b)} players in group b")
     print(f"There are {len(group_c)} players in group c")
     print(f"There are a total of {possible_combos} possible betting combinations")
+    print(f"Each player will play {TOURNAMENT_DAYS} days, {HOLES_PER_DAY} holes per day for a total of {TOTAL_HOLES} total holes")
 
     print("\n" + "=" * (42 + len(COMPETITION_NAME)) + "\n")
 
